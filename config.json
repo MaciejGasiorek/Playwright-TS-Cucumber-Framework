@@ -1,0 +1,5 @@
+{
+    "png_comparision_threshold": 0.1,
+    "cucumber_default_timeout_ms": 10000,
+    "take_screenshots_on_failure": true
+}

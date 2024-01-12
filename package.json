@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:local": "cross-env ENV=local cucumber-js progress-bar",
+    "test.js:local": "cross-env ENV=local cucumber-js --config=config/cucumber.js || true progress-bar",
+    "test:api": "playwright test --config=api.config.ts --project=Chromium",
+    "test": "cucumber-js test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaciejGasiorek/Playwright-TS-Cucumber-Framework.git"
@@ -16,7 +21,14 @@
   },
   "homepage": "https://github.com/MaciejGasiorek/Playwright-TS-Cucumber-Framework#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^10.1.0",
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.6"
+    "@types/node": "^20.10.6",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dom-testing-library": "^3.16.1",
+    "dotenv": "^16.3.1"
   }
 }
