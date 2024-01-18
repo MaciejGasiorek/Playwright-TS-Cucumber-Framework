@@ -30,7 +30,7 @@ Then('Verify {string} is visible', async function (string) {
 });
 
 When('The user enters name and email address', async function () {
-  await homePage.fillNameAndEmail(user.name, user.email);
+  await homePage.fillSignUpNameAndEmail(user.name, user.email);
 });
 
 When('clicks {string} button', async function (string) {
@@ -65,5 +65,4 @@ When('The user clicks Continue button', async function () {
 
 Then('Verify that Logged in as username is visible', async function () {
   await expect(homePage.NavBar).toContainText("Logged in as Maciej");
-  await fixture.page.pause();
 });

@@ -6,19 +6,27 @@ export class HomePage {
 
     readonly page: Page;
     readonly NewUserSignUp: Locator;
-    readonly LoginName: Locator;
-    readonly LoginEmail: Locator;
+    readonly SignupName: Locator;
+    readonly SignupEmail: Locator;
     readonly MenuButton: Locator;
     readonly NavBar:Locator;
+    readonly LoginYoYourAccount :Locator;
+    readonly LoginEmail:Locator;
+    readonly LoginPassword:Locator;
+    This
+   
 
     constructor(page: Page) {
         this.page = page;
         this.NewUserSignUp = page.getByRole('heading',{name:'New User Signup!' });
-        this.LoginName = page.locator('[data-qa="signup-name"]');
-        this.LoginEmail = page.locator("input[data-qa='signup-email']");
+        this.SignupName = page.locator('[data-qa="signup-name"]');
+        this.SignupEmail = page.locator("input[data-qa='signup-email']");
         this.MenuButton = this.page.locator('button');
-        this.NavBar = this.page.locator('.nav.navbar-nav')
-
+        this.NavBar = this.page.locator('.nav.navbar-nav');
+        this.LoginYoYourAccount = page.getByRole('heading',{name:'Login to your account'});
+        this.LoginEmail = page.locator('input[data-qa="login-email"]');
+        this.LoginPassword = page.locator('input[data-qa="login-password"]');
+      
     }
 
     async visit() {
@@ -31,10 +39,16 @@ export class HomePage {
         await menuButton.click();
     }
 
-    async fillNameAndEmail(name:string,email:string)
+    async fillSignUpNameAndEmail(name:string,email:string)
     {
-        await this.LoginName.fill(name);
+        await this.SignupName.fill(name);
+        await this.SignupEmail.fill(email);
+    }
+
+    async  fillLoginEmailAndPassword(email:string,password:string)
+    {
         await this.LoginEmail.fill(email);
+        await this.LoginPassword.fill(password);
     }
 
     async clickButtonByText(text:string)
@@ -43,4 +57,5 @@ export class HomePage {
         //await Button.click();
         await this.MenuButton.filter({hasText:text}).click();
     }
+ 
 }

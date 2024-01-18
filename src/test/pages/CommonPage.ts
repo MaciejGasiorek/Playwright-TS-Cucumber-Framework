@@ -1,9 +1,11 @@
 import { Page, Locator } from "@playwright/test";
 
+
 export class CommonPage {
 
     readonly page: Page;
     readonly AccountCreatedLabel: Locator;
+    readonly Element:Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -14,4 +16,11 @@ export class CommonPage {
         const menuButton = this.page.locator(`text=${text}`)
         await menuButton.click();
     }
+    async findByText(text: string)
+    {   
+        const Element = this.page.locator(`text=${text}`);
+        return this.page.locator(`text=${text}`);
+       
+    }
 }
+

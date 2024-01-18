@@ -1,4 +1,4 @@
-Feature: User Registration tests
+Feature: User Registration tests 
 
     Background:
         Given  The User is on the home page

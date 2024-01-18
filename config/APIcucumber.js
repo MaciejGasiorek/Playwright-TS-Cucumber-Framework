@@ -1,17 +1,14 @@
-{
+module.exports={
     "default": {
+        "tags":process.env.npm_config_TAGS || "",
         "formatOptions": {
             "snippetInterface": "async-await"
         },
-        "paths": [
-            "src/test/features/RegisterUser.feature",
-            "src/test/features/Login.feature"
-
-        ],
+        "paths": ["src/API/Features/Products.feature"], 
         "dryRun": false,
         "require": [
-            "src/test/steps/*.ts",
-            "src/support/hooks/hooks.ts"
+            "src/API/Steps/*.ts"
+      
         ],
         "requireModule": [
             "ts-node/register"

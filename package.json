@@ -6,7 +6,7 @@
   "scripts": {
     "test:local": "cross-env ENV=local cucumber-js progress-bar",
     "test.js:local": "cross-env ENV=local cucumber-js --config=config/cucumber.js || true progress-bar",
-    "test:api": "playwright test --config=api.config.ts --project=Chromium",
+    "testAPI:local": "cross-env ENV=local cucumber-js --config=config/APIcucumber.js || true progress-bar",
     "test": "cucumber-js test"
   },
   "repository": {
