@@ -9,7 +9,7 @@ let context: BrowserContext;
 BeforeAll(async function () {
     console.log('Launch Browser');
     getEnv();
-    browser = await chromium.launch({ headless: false });
+    browser = await chromium.launch({ headless: true });
 })
 
 
