@@ -1,4 +1,5 @@
 import { Page, Locator } from "@playwright/test";
+import { fixture } from "../../support/pageFixtures";
 
 
 export class CommonPage {
@@ -20,7 +21,12 @@ export class CommonPage {
     {   
         const Element = this.page.locator(`text=${text}`);
         return this.page.locator(`text=${text}`);
-       
     }
+    async goToPage()
+    {  
+        await fixture.page.goto("https://automationexercise.com/");
+        fixture.page.pause();
+    }
+
 }
 

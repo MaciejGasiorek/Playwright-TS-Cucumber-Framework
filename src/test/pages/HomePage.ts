@@ -1,4 +1,5 @@
 import { Page, Locator } from "@playwright/test";
+import { fixture } from "../../support/pageFixtures";
 
 
 
@@ -31,7 +32,9 @@ export class HomePage {
 
     async visit() {
         console.log(process.env.WEB_URL);
+        //await fixture.page.goto(process.env.WEB_URL as string, { waitUntil: "load", timeout: 30000 });
         await this.page.goto(process.env.WEB_URL as string, { waitUntil: "load", timeout: 30000 });
+        
     }
 
     async ClickByText(string: string) {
@@ -57,5 +60,6 @@ export class HomePage {
         //await Button.click();
         await this.MenuButton.filter({hasText:text}).click();
     }
+    
  
 }

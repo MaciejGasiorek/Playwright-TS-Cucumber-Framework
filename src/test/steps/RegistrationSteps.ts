@@ -1,11 +1,11 @@
 import { Given, When, Then, setDefaultTimeout } from "@cucumber/cucumber"
 import { fixture } from "../../support/pageFixtures"
-import { Browser, chromium, expect } from "@playwright/test";
-import { user } from "../../utils/test-data/registration.data.json"
+import { Browser, chromium, expect, BrowserContext } from "@playwright/test";
+import { user } from "../../support/utils/test-data/registration.data.json"
 import { HomePage } from "../pages/HomePage";
 import { SignUpPage } from "../pages/SignUpPage";
-import { AccountCreatedPage} from "../pages/AccountCreatedPage";
-import { CommonPage} from "../pages/CommonPage";
+import { AccountCreatedPage } from "../pages/AccountCreatedPage";
+import { CommonPage } from "../pages/CommonPage";
 
 
 setDefaultTimeout(5 * 60 * 1000);
@@ -13,12 +13,13 @@ setDefaultTimeout(5 * 60 * 1000);
 let homePage: HomePage;
 let signUpPage: SignUpPage;
 let accountCreatedPage: AccountCreatedPage;
-let commonPage : CommonPage
+let commonPage: CommonPage
 
 Given('The User is on the home page', async function () {
 
   homePage = new HomePage(fixture.page);
   await homePage.visit();
+
 });
 
 When('The user clicks {string} menu button', async function (string) {
@@ -54,11 +55,11 @@ When('clicks button Create Account', async function () {
 
 Then('user should see a message  {string}', async function (string) {
   accountCreatedPage = new AccountCreatedPage(fixture.page);
-   await expect(accountCreatedPage.AccountCreatedLabel).toHaveText(string, { ignoreCase: true });
+  await expect(accountCreatedPage.AccountCreatedLabel).toHaveText(string, { ignoreCase: true });
 });
 
 When('The user clicks Continue button', async function () {
- commonPage = new CommonPage(fixture.page);
+  commonPage = new CommonPage(fixture.page);
   await commonPage.clickByText("Continue");
 });
 

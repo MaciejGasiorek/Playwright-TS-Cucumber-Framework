@@ -10,6 +10,7 @@ module.exports={
             "src/API/Steps/*.ts"
       
         ],
+      
         "requireModule": [
             "ts-node/register"
         ],
@@ -17,5 +18,8 @@ module.exports={
             "progress-bar",
             "html: reports/cucumber-report.html"
         ]
+
+        
     }
+  
 }
