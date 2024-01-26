@@ -18,7 +18,7 @@
         ],
         "format": [
             "progress-bar",
-            "html: reports/cucumber-report.html"
+            "html:playwright-report/cucumber-report.html"
         ]
     }
 }
